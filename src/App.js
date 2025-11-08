@@ -21,10 +21,12 @@ function App() {
   }, [])
 
   useEffect(()=>{
+    if (selectedValue.first){
     fetch(`https://location-selector.labs.crio.do/country=${selectedValue.first}/states`)
     .then((rawData)=> rawData.json())
     .then((apiRes)=>setStates(apiRes))
     .catch(apiError => console.error("failed to get response from State api, error :", apiError));
+  }
   }, [selectedValue.first])
 
  useEffect(()=>{
