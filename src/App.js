@@ -30,10 +30,12 @@ function App() {
   }, [selectedValue.first])
 
  useEffect(()=>{
+  if (selectedValue.first){
     fetch(`https://location-selector.labs.crio.do/country=${selectedValue.first}/state=${selectedValue.second}/cities`)
     .then((rawData)=> rawData.json())
     .then((apiRes)=>setCities(apiRes))
     .catch(apiError => console.error("failed to get response from State api, error :", apiError));
+  }
   }, [selectedValue.second])
 
   const handleChange = (event) => {
