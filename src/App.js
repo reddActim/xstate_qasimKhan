@@ -36,7 +36,7 @@ function App() {
     .then((apiRes)=>setCities(apiRes))
     .catch(apiError => console.error("failed to get response from State api, error :", apiError));
   }
-  }, [selectedValue.second])
+  }, [selectedValue.first, selectedValue.second])
 
   const handleChange = (event) => {
     event.preventDefault();
