@@ -30,7 +30,7 @@ function App() {
   }, [selectedValue.first])
 
  useEffect(()=>{
-  if (selectedValue.first){
+  if (selectedValue.second){
     fetch(`https://location-selector.labs.crio.do/country=${selectedValue.first}/state=${selectedValue.second}/cities`)
     .then((rawData)=> rawData.json())
     .then((apiRes)=>setCities(apiRes))
