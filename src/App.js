@@ -69,6 +69,11 @@ function App() {
           {cities.map((city)=> (<option key={city} value={city.toLowerCase()}>{city}</option>))}
         </select>   
       </div>
+    {selectedValue.third != "" ?  <h3 style={{paddingLeft :"20px"}}>You selected {selectedValue.third[0].toUpperCase() + selectedValue.third.slice(1)}
+, {selectedValue.second[0].toUpperCase() + selectedValue.second.slice(1)}
+, {selectedValue.first[0].toUpperCase() + selectedValue.first.slice(1)}
+</h3> : ""}
+
     </>
   );
 }
