@@ -20,25 +20,14 @@ function App() {
     .catch(apiError => console.error("failed to get response from countries api, error :", apiError));
   }, [])
 
-useEffect(() => {
-  if (selectedValue.first) {
+  useEffect(()=>{
+    if (selectedValue.first){
     fetch(`https://location-selector.labs.crio.do/country=${selectedValue.first}/states`)
-      .then((rawData) => rawData.json())
-      .then((apiRes) => {
-        if (Array.isArray(apiRes)) {
-          setStates(apiRes);
-        } else {
-          setStates([]);
-          console.error("Unexpected response format for states:", apiRes);
-        }
-      })
-      .catch((apiError) => {
-        console.error("State API error:", apiError);
-        setStates([]); 
-      });
+    .then((rawData)=> rawData.json())
+    .then((apiRes)=>setStates(apiRes))
+    .catch(apiError => console.error("failed to get response from State api, error :", apiError));
   }
-}, [selectedValue.first]);
-
+  }, [selectedValue.first])
 
  useEffect(()=>{
   if (selectedValue.second){
