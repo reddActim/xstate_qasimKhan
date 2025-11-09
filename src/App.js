@@ -53,20 +53,20 @@ function App() {
         <select id='first' value={selectedValue.first} onChange= {(event)=> handleChange(event)} 
         style={{width : "40vw", height : "50px"}}>
           <option value="" >Select Country</option>
-          {countries.map((country)=>(<option key={country} value={country.toLowerCase()} >{country}</option>))}
+          {countries.map((country)=>(<option key={country} value={country} >{country}</option>))}
         </select>
         
         <select id="second" value={selectedValue.second} onChange={(event)=> handleChange(event)}
           style={{width : "20vw", height : "50px"}} 
           disabled={selectedValue.first === ""}>
           <option value="">Select State</option>
-          {states.map((state)=>(<option key={state} value={state.toLowerCase()} >{state}</option>))}
+          {states.map((state)=>(<option key={state} value={state} >{state}</option>))}
         </select> 
 
         <select id="third" value={selectedValue.third} onChange={(event)=> handleChange(event)}
           style={{width : "20vw", height : "50px"}} disabled={selectedValue.second === ""}>
           <option  >Select City</option>
-          {cities.map((city)=> (<option key={city} value={city.toLowerCase()}>{city}</option>))}
+          {cities.map((city)=> (<option key={city} value={city}>{city}</option>))}
         </select>   
       </div>
     {selectedValue.third !== "" ?  <h3 style={{paddingLeft :"20px"}}>You selected {selectedValue.third[0].toUpperCase() + selectedValue.third.slice(1)}
